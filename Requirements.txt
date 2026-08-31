@@ -1,0 +1,12 @@
+# BBO capstone — Python dependencies
+# Python 3.10+
+
+# Core — everything needed to fit the surrogates and generate weekly proposals
+numpy                 # input vectors, query history arrays, .npy seed data
+scipy                 # norm.cdf / norm.pdf for Expected Improvement; stats.qmc for Sobol and Latin hypercube designs
+scikit-learn          # GaussianProcessRegressor, Matern kernel, WhiteKernel
+pandas                # per-function query history, round-by-round record
+
+# Notebooks and plots
+matplotlib            # GP posterior slices, EI landscapes, best-value trajectories
+jupyter               # weekly round notebooks
