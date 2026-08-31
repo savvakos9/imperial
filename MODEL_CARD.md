@@ -6,15 +6,15 @@
 
 ## 1. Overview
 
-**Name.** Gaussian Process surrogate with a directional heuristic layer.
+**Name:** Gaussian Process surrogate with a directional heuristic layer.
 
-**Type.** Sequential black-box optimiser. A predictive model per function, plus a rule layer that converts model output and observed history into the next query.
+**Type:** Sequential black-box optimiser. A predictive model per function, plus a rule layer that converts model output and observed history into the next query.
 
-**Version.** Final. Thirteen rounds complete, budget exhausted, no further updates possible.
+**Version:** 1.0.0
 
-**Purpose.** Find inputs that maximise eight unknown scalar objectives of dimension 2 to 8, given one evaluation per function per week for thirteen weeks and no gradients, closed form, or structural information.
+**Purpose:** Find inputs that maximise eight unknown scalar objectives of dimension 2 to 8, given one evaluation per function per week for thirteen weeks and no gradients, closed form, or structural information.
 
-**Scoring context.** The capstone is scored on the Week 13 submission alone rather than on the best value found across the campaign. This distinction matters for reading Section 5 and is discussed in Section 6.
+**Scoring context:** The capstone is scored on the Week 13 submission alone rather than on the best value found across the campaign. This distinction matters for reading Section 5 and is discussed in Section 6.
 
 ---
 
@@ -47,16 +47,16 @@ From roughly Week 8 onward this layer drove most query selection:
 
 ## 3. Intended Use
 
-**Appropriate for.** Expensive, opaque, continuous objectives where each evaluation costs real time or money and the total budget is in the tens rather than the thousands. Experimental design, process tuning, formulation work, supplier or specification trade-offs where each trial is a physical run.
+**Appropriate for:** Expensive, opaque, continuous objectives where each evaluation costs real time or money and the total budget is in the tens rather than the thousands. Experimental design, process tuning, formulation work, supplier or specification trade-offs where each trial is a physical run.
 
-**Not appropriate for.**
+**Not appropriate for:**
 - Problems with plentiful evaluations — simpler search wins, and the GP overhead buys nothing.
 - Objectives that drift over time. Nothing here handles non-stationarity in time.
 - Discrete or combinatorial spaces. The whole approach assumes a continuous box.
 - Settings where a poor query is dangerous rather than merely wasteful. This system deliberately spends queries on probes expected to fail informatively (Week 9's mirrors), which is only acceptable when failure is cheap.
 - Oscillatory or highly non-stationary surfaces. F1 demonstrates the failure mode directly.
 
-**Primary audience for this card.** A practitioner deciding whether to reuse this approach, and an assessor checking whether the reasoning was sound. It is deliberately not written for a non-technical stakeholder — Section 8 addresses what such a reader would still need.
+**Primary audience for this card:** A practitioner deciding whether to reuse this approach, and an assessor checking whether the reasoning was sound. It is deliberately not written for a non-technical stakeholder — Section 8 addresses what such a reader would still need.
 
 ---
 
@@ -64,12 +64,12 @@ From roughly Week 8 onward this layer drove most query selection:
 
 Stated explicitly because several proved incorrect.
 
-1. **Local smoothness.** Nearby inputs give nearby outputs. Holds for F2, F4, F5, F6, F8; fails for F1.
-2. **Stationarity.** One length-scale per dimension describes the whole domain. Violated by F1 and probably by F5, whose high values appear at widely separated points.
-3. **Point observations.** Each returned value was treated as the objective at that coordinate, with observation variance absorbed into the fitted `WhiteKernel` term rather than measured independently.
-4. **The current incumbent is the best-known point.** This held early and did not hold from Week 8 onward. See Section 6.
-5. **Improvement direction generalises across functions.** The centre-ward hypothesis, formed after Week 11. Locally true, globally false.
-6. **The budget is measured in evaluations.** It is measured in *rounds*, and eight parallel queries per round make a round spent on confirmation more expensive than it appears.
+1. **Local smoothness:** Nearby inputs give nearby outputs. Holds for F2, F4, F5, F6, F8; fails for F1.
+2. **Stationarity:** One length-scale per dimension describes the whole domain. Violated by F1 and probably by F5, whose high values appear at widely separated points.
+3. **Point observations:** Each returned value was treated as the objective at that coordinate, with observation variance absorbed into the fitted `WhiteKernel` term rather than measured independently.
+4. **The current incumbent is the best-known point:** This held early and did not hold from Week 8 onward. See Section 6.
+5. **Improvement direction generalises across functions:** The centre-ward hypothesis, formed after Week 11. Locally true, globally false.
+6. **The budget is measured in evaluations:** It is measured in *rounds*, and eight parallel queries per round make a round spent on confirmation more expensive than it appears.
 
 ---
 
@@ -124,7 +124,7 @@ The objectives are synthetic and contain no personal, demographic or sensitive i
 
 ---
 
-## 8. What This Card Does Not Tell You
+## 8. What This Card Does Not Tell
 
 Stated plainly, because a card that omits its own gaps is worse than no card.
 
