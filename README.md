@@ -5,7 +5,7 @@ Eight unknown objectives, 1-D to 8-D, one query per function per week for thirte
 
 ---
 
-## NON-TECHNICAL EXPLANATION OF YOUR PROJECT
+## NON-TECHNICAL EXPLANATION OF THE PROJECT
 
 Eight hidden formulas. Each one takes a handful of numbers between 0 and 1 and hands back a single score, and the only way to learn anything about them is to submit a guess and wait a week for the answer. Thirteen guesses each, then it stops.
 
