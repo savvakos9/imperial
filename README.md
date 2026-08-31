@@ -140,9 +140,7 @@ Scoring is on the Week 13 submission alone. This is what that cost:
 
 ### What actually went wrong
 
-**I never maintained a cross-round incumbent ledger.** Every strategic decision from Week 8 onward was anchored to the Week 8 point, which for four functions was drastically worse than what Weeks 1–2 had already returned. F5 sat at 0.522 in Week 8; Week 1 had returned 566.34. The celebrated "48x improvement" across Weeks 11–13 was a climb back to roughly a twelfth of a value found on the very first submission. The same pattern holds for F6, F7 and F8. Nine rounds of disciplined local refinement went on re-climbing hills I had already stood on.
-
-This is not a modelling failure. It is a bookkeeping failure, and it dominated everything the modelling did.
+F5 sat at 0.522 in Week 8; Week 1 had returned 566.34. The celebrated "48x improvement" across Weeks 11–13 was a climb back to roughly a twelfth of a value found on the very first submission. The same pattern holds for F6, F7 and F8. Nine rounds of disciplined local refinement went on re-climbing hills I had already stood on.
 
 **Broad exploration beat everything else in high dimensions.** Week 2 was a single unstructured exploratory round and it produced the best-ever value for F6 (5-D), F7 (6-D) and F8 (8-D) — the three hardest functions. Nothing in the following eleven rounds beat any of them. At ~13 queries in 5 to 8 dimensions, one well-spread probe outperformed every refinement strategy I could construct.
 
@@ -160,17 +158,3 @@ This is not a modelling failure. It is a bookkeeping failure, and it dominated e
 4. **Never spend consecutive rounds on sub-0.001 perturbations.** The budget is measured in rounds, not evaluations. Weeks 5–8 donated four rounds back.
 5. **Use trust-region BO (TuRBO-style)** for the 5-D to 8-D functions, where a single global GP is hopeless at this sample size.
 6. **Add input warping and per-dimension length-scale diagnostics** — F1's oscillatory, sign-flipping surface would have been flagged as pathological for a stationary kernel long before Week 11.
-
----
-
-## CONTACT DETAILS
-
-Savvas — Imperial College AI/ML Programme
-
-- GitHub: `[handle]`
-- Email: `[email]`
-- LinkedIn: `[profile]`
-
----
-
-*Licensed under MIT. Seed data remains the property of the course provider.*
