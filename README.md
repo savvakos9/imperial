@@ -15,8 +15,6 @@ This repository is the complete record of those thirteen weeks — every guess, 
 
 ## DATA
 
-No external dataset. Every observation was purchased with one of a hard-capped number of queries, which is the entire point of the exercise.
-
 **Seed data.** The course portal supplied `initial_inputs.npy` and `initial_outputs.npy` — a small set of pre-evaluated points to anchor the first surrogate fits. Provided by the Imperial College AI/ML programme (delivered via Emeritus); not publicly redistributable, so referenced rather than committed.
 
 **Generated data.** Everything after that is self-generated: 13 rounds x 8 functions = 104 query–response pairs. One input vector submitted per function per round, one scalar returned. No gradients, no closed form, no noise model, no information about modality. Maximisation in all eight cases. Feedback is batched and delayed — all eight queries commit before any result is seen, so a round cannot be corrected mid-flight.
